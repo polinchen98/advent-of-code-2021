@@ -3,13 +3,11 @@
 from collections import Counter
 import numpy as np
 
-binary_numbers = open('input_3.txt', 'r')
+binary_numbers = open('Day_3/input_3.txt', 'r')
 binary_numbers_list = binary_numbers.read().splitlines()
-
 
 matrix = []
 for line in binary_numbers_list:
-    length = len(binary_numbers_list)
     matrix.append([int(x) for x in line])
 
 gamma_rate = []
@@ -48,14 +46,24 @@ print(epsilon_rate_binary)  # 1575
 power_consumption = gamma_rate_binary * epsilon_rate_binary
 print(power_consumption)  # 3969000
 
+# # part two
 
-# part two
+gamma = binary_numbers_list[::]
+for i in range(len(binary_numbers_list[0])):
+    most = Counter([r[i] for r in gamma])
+    most = '1' if most['1'] >= most['0'] else '0'
+    gamma = list(filter(lambda x: x[i] == most, gamma))
+    if len(gamma) == 1:
+        break
 
-counter_1 = {}
-rev_matrix = matrix.swapaxes(1, 0)
-count = []
-for array in rev_matrix:
-    count.append(array[0])
-    counter_1 = Counter(count)
+epsilon = binary_numbers_list[::]
+for i in range(len(binary_numbers_list[0])):
+    least = Counter([r[i] for r in epsilon])
+    least = '0' if least['1'] >= least['0'] else '1'
+    epsilon = list(filter(lambda x: x[i] == least, epsilon))
+    if len(epsilon) == 1:
+        break
 
-
+epsilon_rate = int(epsilon[0], 2)
+gamma_rate = int(gamma[0], 2)
+print(gamma_rate * epsilon_rate)  # 4267809
