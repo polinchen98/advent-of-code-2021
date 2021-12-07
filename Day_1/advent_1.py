@@ -1,6 +1,6 @@
 # part one
 
-measurements = open('input1.txt', 'r')
+measurements = open('input_1.txt', 'r')
 measurements_list = measurements.read().splitlines()
 
 increases_1 = 0

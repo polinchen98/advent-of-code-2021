@@ -1,6 +1,6 @@
 # part one
 
-positions = open('input2.txt', 'r')
+positions = open('input_2.txt', 'r')
 positions_list = positions.read().splitlines()
 position_dict = {'forward': 0, 'down': 0, 'up': 0}
 for position in positions_list:
