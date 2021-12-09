@@ -1,3 +1,5 @@
+# part one
+
 with open('input_8.txt') as data:
     strings = data.read().split('\n')
     entry = [i.split(' | ') for i in strings]
@@ -17,3 +19,17 @@ for word_list in letters:
 
 print(count)  # 554
 
+# part two
+
+digits = {
+    1: "cf",
+    7: "acf",
+    4: "bcdf",
+    2: "acdeg",
+    3: "acdfg",
+    5: "abdfg",
+    6: "abdefg",
+    9: "abcdfg",
+    0: "abcefg",
+    8: "abcdefg",
+}
